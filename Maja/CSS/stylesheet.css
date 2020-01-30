@@ -1,0 +1,117 @@
+@font-face {
+  font-family: "revue";
+  src: url("../Ressources/Fonts/revue.otf");
+}
+@font-face {
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background-color: black;
+  color: #ededed;
+  font-family: "Montserrat";
+  font-size: 2vw;
+  margin: 0;
+  padding: 0;
+}
+
+#reviewSection {
+  height: 100vh;
+	position: relative;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: 100%;
+
+}
+
+#reviewsLeft {
+  float: left;
+  margin-left: 0.5%
+}
+
+#reviewsRight {
+  float: right;
+  margin-right: 0.5%;
+}
+
+.reviews {
+  height: 100%;
+  width: 32.5%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+#face {
+  width: 34%;
+  height: 100%;
+  float: left;
+  position: relative;
+}
+
+.image {
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  top: 40%;
+  margin-top: -50%;
+}
+
+.revContainerLeft p {
+  text-align: right;
+}
+
+.revContainerRight p {
+  text-align: left;
+}
+
+.revContainerRight, .revContainerLeft {
+  clear: both;
+}
+
+.cite, .name {
+  margin: 0;
+  padding: 0;
+}
+
+.cite {
+  margin-top: 20px;
+  font-style: italic;
+}
+
+.name {
+  font-size: 1vw;
+  margin-top: 10px;
+}
+
+.wholeRevContainer {
+  height: 35%;
+}
+
+.wholeRevContainer.top {
+  margin-top: 20%;
+  margin-bottom: 10%
+}
+
+.wholeRevContainer.bottom {
+  margin-bottom: 5%;
+}
+
+.starRev i {
+  font-size: 4vw;
+  margin-bottom: 10px;
+}
+
+.starRev.left i {
+  float: right;
+}
+
+.starRev.right i {
+  float: left;
+}
+
+#test {
+  height: 100vh;
+  background-color: red;
+}
