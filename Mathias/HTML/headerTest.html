@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+
+  <title>Header Test (Responsive)</title>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" type="text/css" href="../CSS/stylesheet.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+  <script type="text/javascript" src="../JS/scripts.js"></script>
+
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+</head>
+
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <div class="header-link">
+        <a href="#">NEWS</a>
+      </div>
+      <div class="header-link">
+        <a href="#">TEAM</a>
+      </div>
+      <div class="header-logo">
+        <a href="">THE ROOM</a>
+      </div>
+      <div class="header-link">
+        <a href="#">SHOW</a>
+      </div>
+      <div class="header-link">
+        <a href="#">TRAILER</a>
+      </div>
+
+      <button id="menubtn" onclick="openOrCloseMenu()" type="button" name="menubutton" class="header-menu-button"><i class="material-icons">menu</i></button>
+    </nav>
+
+    <nav class="header-dropdown-menu" id="mainMenuDropDownItems" >
+      <div class="header-menu-link">
+        <a href="#">NEWS</a>
+      </div>
+      <div class="header-menu-link">
+        <a href="#">TEAM</a>
+      </div>
+      <div class="header-menu-link">
+        <a href="#">SHOW</a>
+      </div>
+      <div class="header-menu-link">
+        <a href="#">TRAILER</a>
+      </div>
+    </nav>
+
+    <div class="navbar-fadeout"></div> <!-- gradient -->
+  </header>
+
+  <div class="top-filler"></div> <!-- fills space the header occupies when at top -->
+
+  <div class="filler">CONTENT - MAJA</div>
+  <div class="filler" style="font-size: 40px; background-color: #141414; height: 120px; line-height: 120px;">★★★★★</div>
+  <div class="filler">CONTENT - PYRA</div>
+  <div class="filler">CONTENT - JOHN</div>
+
+  <footer class="footer">FOOTER</footer>
+</body>
+</html>
