@@ -13,8 +13,13 @@ body {
   background: #141414;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* black => #141414 */
 /* white => #ededed */
+
 ::-webkit-scrollbar {
   display: none;
 }
@@ -125,26 +130,57 @@ body {
   background-color: #141414;
 }
 
-.user-review-star-container {
+#user-review-star-container {
   text-align: center;
+  letter-spacing: -4px;
 }
 
-.user-review-star-container i {
-    font-size: 50px;
+#user-review-star-container i {
+    font-size: 70px;
     line-height: 100px;
 }
 
-.review-button-container {
+#star-1, #star-2, #star-3, #star-4, #star-5 {
+  cursor: pointer;
+}
+
+.user-review-button-container {
   line-height: 100px;
   text-align: center;
   width: 100%;
+}
+
+.user-review-button-container button {
+  decoration: none;
+  padding: 10px 60px;
+  font-family: Montserrat;
+  font-weight: bolder;
+  background-color: transparent;
+  color: #ededed;
+  border: 3px solid #ededed;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.user-review-button-container button:hover {
+  background-color: #ededed;
+  color: #141414;
+}
+
+.user-review-button-container button:active {
+  background-color: #141414;
+  color: #6f6f6f;
+}
+
+.user-review-button-container button:focus {
+  outline: 0;
 }
 
 .filler {
   font-family: revue;
   height: 600px;
   color: #ededed;
-  background-color: red;
+  background-color: #141414;
   text-align: center;
   font-size: 22px;
   line-height: 600px;
