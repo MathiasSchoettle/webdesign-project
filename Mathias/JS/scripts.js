@@ -1,5 +1,7 @@
  document.addEventListener("DOMContentLoaded", function() {
 
+   //window.scrollTo(0,document.body.scrollHeight); // temporary 
+
    var children = document.getElementById('user-review-star-container').children
    var backup = [];
 

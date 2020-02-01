@@ -11,6 +11,7 @@ body {
   padding: 0;
   margin: 0;
   background: #141414;
+  min-width: 350px;
 }
 
 html {
@@ -28,6 +29,8 @@ html {
   position: fixed;
   top: 0;
   width: 100%;
+  min-width: 350px;
+  z-index: 9999;
 }
 
 .navbar {
@@ -53,7 +56,7 @@ html {
   line-height: 110px;
 }
 
-.header-link a, .header-dropdown-menu a {
+.header-link a, .header-dropdown-menu a, #footer-nav a {
   color: #ededed;
   transition: 0.2s ease;
   text-decoration: none;
@@ -62,9 +65,9 @@ html {
   border-bottom: 1px solid transparent;
 }
 
-.header-link a:hover, .header-dropdown-menu a:hover {
+.header-link a:hover, .header-dropdown-menu a:hover, #footer-nav a:hover {
   border-bottom: 1px solid #ffffff;
-  padding: 0 0 2px 0;
+  padding-bottom: 2px;
 }
 
 .header-logo {
@@ -187,13 +190,67 @@ html {
 }
 
 .footer {
-  height: 100px;
-  background-color: #141414;
+  height: 200px;
   color: #ededed;
+}
+
+.footer-social-media {
+  background-color: #141414;
+  height: 140px;
   text-align: center;
-  font-size: 28pt;
-  line-height: 100px;
-  font-family: revue;
+  line-height: 175px;
+}
+
+.footer-icon {
+  padding: 0 5%;
+  font-size: 50px;
+  transition: 0.15s ease-in;
+  cursor: pointer;
+}
+
+.socicon-youtube:hover {
+   color: #d60000;
+}
+
+.socicon-facebook:hover {
+   color: #3b5998 ;
+}
+
+.socicon-twitter:hover {
+   color: #00aced;
+}
+
+.socicon-mail:hover {
+   color: #ffd15c;
+}
+
+.footer-other {
+  height: 60px;
+  background-color: #141414;
+  font-family: Montserrat;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+#footer-nav {
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  color: #ededed;
+}
+
+#footer-nav a {
+  padding: 0 5px;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #ededed;
+}
+
+#footer-copyright {
+  font-size: 10px;
+  margin: 0;
+  padding: 0;
 }
 
 @media screen and (max-width: 800px) {

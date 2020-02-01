@@ -2,10 +2,10 @@
 <html lang="en" dir="ltr">
 
 <head>
-
   <title>Header Test (Responsive)</title>
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://d1azc1qln24ryf.cloudfront.net/114779/Socicon/style-cf.css?u8vidh">
   <link rel="stylesheet" type="text/css" href="../CSS/stylesheet.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 
@@ -19,7 +19,7 @@
   <header class="header">
     <nav class="navbar">
       <div class="header-link">
-        <a href="#">NEWS</a>
+        <a href="#pyra">NEWS</a>
       </div>
       <div class="header-link">
         <a href="#">TEAM</a>
@@ -28,29 +28,27 @@
         <a href="#">THE ROOM</a>
       </div>
       <div class="header-link">
-        <a href="#">SHOW</a>
+        <a href="#john">SHOW</a>
       </div>
       <div class="header-link">
-        <a href="#">TRAILER</a>
+        <a href="#trailer">TRAILER</a>
       </div>
-
-
 
       <button id="menubtn" onclick="openOrCloseMenu()" type="button" name="menubutton" class="header-menu-button"><i id="menubtnico" class="material-icons">menu</i></button>
     </nav>
 
     <nav class="header-dropdown-menu" id="mainMenuDropDownItems">
       <div class="header-menu-link">
-        <a href="#">NEWS</a>
+        <a href="">NEWS</a>
       </div>
       <div class="header-menu-link">
-        <a href="#">TEAM</a>
+        <a href="">TEAM</a>
       </div>
       <div class="header-menu-link">
-        <a href="#">SHOW</a>
+        <a href="">SHOW</a>
       </div>
       <div class="header-menu-link">
-        <a href="#">TRAILER</a>
+        <a href="">TRAILER</a>
       </div>
     </nav>
 
@@ -75,10 +73,31 @@
     </div>
   </div>
 
-  <div class="filler">CONTENT - PYRA</div>
-  <div class="filler">CONTENT - JOHN</div>
+  <div class="filler" id="pyra">CONTENT - PYRA</div>
+  <div class="filler" id="john">CONTENT - JOHN</div>
 
-  <footer class="footer">FOOTER</footer>
+  <footer class="footer">
+    <nav class="footer-social-media">
+      <i class="socicon-youtube footer-icon"></i>
+      <i class="socicon-facebook footer-icon"></i>
+      <i class="socicon-twitter footer-icon"></i>
+      <i class="socicon-mail footer-icon"></i>
+    </nav>
+
+    <div class="footer-other">
+      <nav id="footer-nav">
+        <a href="">About</a>
+        <a href="">Imprint</a>
+        <a href="">Privacy</a>
+        <a href="">Contact</a>
+      </nav>
+
+      <p id="footer-copyright">Copyright &#169; The Room <script>
+          document.write(new Date().getFullYear())
+        </script>
+      </p>
+    </div>
+  </footer>
 </body>
 
 </html>
