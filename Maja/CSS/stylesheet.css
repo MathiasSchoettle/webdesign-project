@@ -7,7 +7,6 @@
 }
 
 body {
-  background-color: black;
   color: #ededed;
   font-family: "Montserrat";
   font-size: 2vw;
@@ -58,6 +57,7 @@ body {
   top: 40%;
   margin-top: -50%;
   display: block;
+  filter: contrast(90%);
 }
 
 .revContainerLeft p {
@@ -79,7 +79,6 @@ body {
 
 .cite {
   margin-top: 20px;
-  font-style: italic;
 }
 
 .name {
