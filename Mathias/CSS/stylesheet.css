@@ -30,7 +30,7 @@ html {
   top: 0;
   width: 100%;
   min-width: 350px;
-  z-index: 9999;
+  z-index: 5;
 }
 
 .navbar {
@@ -179,6 +179,50 @@ html {
   outline: 0;
 }
 
+#trailer-container {
+    height: 250px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+
+#trailer-container #overlay{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.3;
+  background-color: #141414;
+  overflow:hidden;
+  z-index: -1;
+}
+
+#trailer-container i {
+  font-size: 120px;
+  line-height: 250px;
+  color: #bdbdbd;
+  transition: 0.2s;
+  filter: drop-shadow(0 0 10px #141414);
+  cursor: pointer;
+}
+
+#trailer-container i:hover {
+  color: #ededed;
+  font-size: 123px;
+}
+
+#trailer-container video {
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-40%);
+  z-index: -2;
+}
+
 .filler {
   font-family: revue;
   height: 600px;
@@ -187,6 +231,54 @@ html {
   text-align: center;
   font-size: 22px;
   line-height: 600px;
+}
+
+#trailer-overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  cursor: pointer;
+  text-align: center;
+  line-height: 100%;
+}
+
+#trailer-overlay #color-overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000000;
+  opacity: 0.95;
+}
+
+#trailer-overlay video {
+  width: 80%;
+  position: fixed;
+  display: block;
+  top: 50%;
+  left: 10%;
+  right: 10%;
+  bottom: 0;
+  outline: none;
+  margin: 0;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  transition: 0.5s;
+  min-width: 350px;
+}
+
+#trailer-overlay video:hover {
+
 }
 
 .footer {
@@ -276,5 +368,11 @@ html {
 
   .header-dropdown-menu {
     display: block;
+  }
+
+  #trailer-overlay video {
+    width: 100%;
+    left: 0;
+    right: 0;
   }
 }

@@ -1,7 +1,5 @@
  document.addEventListener("DOMContentLoaded", function() {
 
-   //window.scrollTo(0,document.body.scrollHeight); // temporary 
-
    var children = document.getElementById('user-review-star-container').children
    var backup = [];
 
@@ -53,4 +51,15 @@
      dropdownMenu.style.height = "0px";
      icon.innerText = "menu";
    }
+ }
+
+ function openTrailerPlayer() {
+   document.getElementById('trailer-overlay').style.display = 'block';
+   document.getElementById('trailer-video').play();
+ }
+
+ function closeTrailerPlayer() {
+   document.getElementById('trailer-overlay').style.display = 'none';
+   document.getElementById('trailer-video').pause();
+   document.getElementById('trailer-video').currentTime = 0;
  }

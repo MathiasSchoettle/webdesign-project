@@ -22,7 +22,7 @@
         <a href="#pyra">NEWS</a>
       </div>
       <div class="header-link">
-        <a href="#">TEAM</a>
+        <a href="">TEAM</a>
       </div>
       <div class="header-logo">
         <a href="#">THE ROOM</a>
@@ -31,7 +31,7 @@
         <a href="#john">SHOW</a>
       </div>
       <div class="header-link">
-        <a href="#trailer">TRAILER</a>
+        <a href="">TRAILER</a>
       </div>
 
       <button id="menubtn" onclick="openOrCloseMenu()" type="button" name="menubutton" class="header-menu-button"><i id="menubtnico" class="material-icons">menu</i></button>
@@ -74,6 +74,20 @@
   </div>
 
   <div class="filler" id="pyra">CONTENT - PYRA</div>
+
+
+  <div id="trailer-overlay" onclick="closeTrailerPlayer()">
+    <div id="color-overlay"></div>
+    <video id="trailer-video" src="../Ressources/Videos/trailer.mp4" controls muted/>
+  </div>
+  <div id="trailer-container">
+    <span onclick="openTrailerPlayer()"><i class="material-icons">play_circle_filled</i></span>
+    <div id="overlay"></div>
+    <video autoplay muted loop>
+      <source src="../Ressources/Videos/trailerBAW.mp4" type="video/mp4">
+    </video>
+  </div>
+
   <div class="filler" id="john">CONTENT - JOHN</div>
 
   <footer class="footer">
