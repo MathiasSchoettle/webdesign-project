@@ -16,7 +16,7 @@ body {
 }
 
 #reviewSection {
-  height: 85vh;
+  height: calc(100vh - 110px);
 	position: relative;
   padding: 0;
   margin: 0;
@@ -122,6 +122,6 @@ body {
 }
 
 #header {
-  height: 15vh;
+  height: 110px;
   background-color: green;
 }
