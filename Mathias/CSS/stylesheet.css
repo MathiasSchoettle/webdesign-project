@@ -277,8 +277,13 @@ html {
   min-width: 350px;
 }
 
-#trailer-overlay video:hover {
-
+#trailer-overlay-close {
+  position: fixed;
+  display: block;
+  top: 10px;
+  right: 10px;
+  color: #ededed;
+  z-index: 11;
 }
 
 .footer {
