@@ -16,13 +16,13 @@ body {
 }
 
 #reviewSection {
-  height: 100vh;
+  height: 85vh;
 	position: relative;
   padding: 0;
   margin: 0;
   border: 0;
   width: 100%;
-
+  min-height: 600px;
 }
 
 #reviewsLeft {
@@ -41,6 +41,7 @@ body {
   margin: 0;
   padding: 0;
   border: 0;
+  position: relative;
 }
 
 #face {
@@ -50,12 +51,13 @@ body {
   position: relative;
 }
 
-.image {
-  max-width: 100%;
+.posterImage {
+  width: 100%;
   max-height: 100%;
   position: absolute;
   top: 40%;
   margin-top: -50%;
+  display: block;
 }
 
 .revContainerLeft p {
@@ -86,16 +88,19 @@ body {
 }
 
 .wholeRevContainer {
-  height: 35%;
+  display: block;
+  overflow: auto;
+  position: absolute;
 }
 
 .wholeRevContainer.top {
-  margin-top: 20%;
-  margin-bottom: 10%
+  bottom: 50%;
+  margin-bottom: 7.5%;
 }
 
 .wholeRevContainer.bottom {
-  margin-bottom: 5%;
+  top: 50%;
+  margin-top: 7.5%;
 }
 
 .starRev i {
@@ -114,4 +119,9 @@ body {
 #test {
   height: 100vh;
   background-color: red;
+}
+
+#header {
+  height: 15vh;
+  background-color: green;
 }
