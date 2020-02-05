@@ -5,68 +5,69 @@
     <title>The Room - Official Movie Site</title>
 
     <link rel="stylesheet" type="text/css" href="../CSS/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="../../Mathias/CSS/stylesheet.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   </head>
   <body>
-    <section id="header">
-      header
-    </section>
+    <header class="header">
+      <nav class="navbar">
+        <div class="header-link">
+          <a href="#pyra">NEWS</a>
+        </div>
+        <div class="header-link">
+          <a href="">TEAM</a>
+        </div>
+        <div class="header-logo">
+          <a href="#">THE ROOM</a>
+        </div>
+        <div class="header-link">
+          <a href="#john">SHOW</a>
+        </div>
+        <div class="header-link">
+          <a href="">TRAILER</a>
+        </div>
+
+        <button id="menubtn" onclick="openOrCloseMenu()" type="button" name="menubutton" class="header-menu-button"><i id="menubtnico" class="material-icons">menu</i></button>
+      </nav>
+
+      <nav class="header-dropdown-menu" id="mainMenuDropDownItems">
+        <div class="header-menu-link">
+          <a href="">NEWS</a>
+        </div>
+        <div class="header-menu-link">
+          <a href="">TEAM</a>
+        </div>
+        <div class="header-menu-link">
+          <a href="">SHOW</a>
+        </div>
+        <div class="header-menu-link">
+          <a href="">TRAILER</a>
+        </div>
+      </nav>
+
+      <div class="navbar-fadeout"></div> <!-- gradient -->
+    </header>
+
+    <div class="top-filler"></div> <!-- fills space the header occupies when at top -->
+
     <!-- review section and one page movie poster-->
     <section id="reviewSection">
-      <div id="reviewsLeft" class="reviews">
-        <div class="wholeRevContainer top">
+        <div class="wholeRevContainer">
           <!-- star reviews -->
-          <div class="starRev left">
-            <i class="material-icons">star</i>
+          <div class="starRev">
+            <i class="material-icons">star</i><i class="material-icons">star_border</i><i class="material-icons">star_border</i><i class="material-icons">star_border</i><i class="material-icons">star_border</i>
           </div>
           <!-- review text -->
-          <div class="revContainerLeft">
+          <div class="review">
             <p class="cite">"I DIDN'T THINK IT WAS POSSIBLE TO MAKE A FILM SO BAD"</p>
             <p class="name">- KRISTINE, IMDB</p>
           </div>
-        </div>
-        <div class="wholeRevContainer bottom">
-          <!-- star reviews -->
-          <div class="starRev left">
-            <i class="material-icons">star_half</i>
-          </div>
-          <!-- review text -->
-          <div class="revContainerLeft">
-            <p class="cite">"YOU REALLY CAN'T BELIEVE HOW TERRIBLE THE ROOM IS"</p>
-            <p class="name">- ALONSO DURALDE, IMDB</p>
-          </div>
-        </div>
       </div>
 
       <div id=face>
         <!-- poster image -->
-        <img src="../Ressources/Images/TW_face.png" alt="" class="posterImage">
-      </div>
-
-      <div id=reviewsRight class="reviews">
-        <div class="wholeRevContainer top">
-          <!-- star reviews -->
-          <div class="starRev right">
-            <i class="material-icons">star</i><i class="material-icons">star_half</i>
-          </div>
-          <!-- review text -->
-          <div class="revContainerRight">
-            <p class="cite">"THE ROOM IS SO UNFEASIBLY BAD IT HAS BECOME A CULT HIT"</p>
-            <p class="name">- STEVE ROSE, THE GUARDIAN</p>
-          </div>
-        </div>
-        <div class="wholeRevContainer bottom">
-          <!-- star reviews -->
-          <div class="starRev right">
-            <i class="material-icons">star</i>
-          </div>
-          <!-- review text -->
-          <div  class="revContainerRight">
-            <p class="cite">"TRUST ME, THIS IS THE WORST MOVIE YOU WILL EVER SEE IN YOUR ENTIRE LIFE"</p>
-            <p class="name">- RCARSTAIRS, IMDB</p>
-          </div>
-        </div>
+        <img src="../Ressources/Images/the_room_poster.png" alt="" class="posterImage">
       </div>
     </section>
     <section id="test">
