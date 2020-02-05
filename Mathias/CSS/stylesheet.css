@@ -54,6 +54,7 @@ html {
   float: left;
   text-align: center;
   line-height: 110px;
+  font-weight: bold;
 }
 
 .header-link a, .header-dropdown-menu a, #footer-nav a {
@@ -61,12 +62,12 @@ html {
   transition: 0.2s ease;
   text-decoration: none;
   font-family: Montserrat;
-  font-size: 14pt;
-  border-bottom: 1px solid transparent;
+  font-size: 18pt;
+  border-bottom: 2px solid transparent;
 }
 
 .header-link a:hover, .header-dropdown-menu a:hover, #footer-nav a:hover {
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
   padding-bottom: 2px;
 }
 
@@ -141,6 +142,9 @@ html {
 #user-review-star-container i {
     font-size: 70px;
     line-height: 100px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 #star-1, #star-2, #star-3, #star-4, #star-5 {
@@ -180,11 +184,12 @@ html {
 }
 
 #trailer-container {
-    height: 250px;
+    height: 400px;
     width: 100%;
     overflow: hidden;
     position: relative;
     text-align: center;
+    line-height: 250px;
 }
 
 #trailer-container #overlay{
@@ -200,8 +205,8 @@ html {
 }
 
 #trailer-container i {
-  font-size: 120px;
-  line-height: 250px;
+  font-size: 200px;
+  line-height: 400px;
   color: #bdbdbd;
   transition: 0.2s;
   filter: drop-shadow(0 0 10px #141414);
@@ -210,7 +215,7 @@ html {
 
 #trailer-container i:hover {
   color: #ededed;
-  font-size: 123px;
+  font-size: 205px;
 }
 
 #trailer-container video {
@@ -231,6 +236,98 @@ html {
   text-align: center;
   font-size: 22px;
   line-height: 600px;
+}
+
+#gallery {
+  width: 100%;
+  height: 75vh;
+  position: relative;
+  margin: 100px 0;
+  overflow: hidden;
+}
+
+#gallery i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 100px;
+  z-index: 4;
+  color: #bdbdbd;
+  transition: 0.3s;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+#gallery i:hover {
+  font-size: 110px;
+  color: #ededed;
+}
+
+#gallery #icon-left {
+  left: 2.5%;
+}
+
+#gallery #icon-left:hover {
+  left: 2.2%;
+}
+
+#gallery #icon-right {
+  right: 2.5%;
+}
+
+#gallery #icon-right:hover {
+  right: 2.2%;
+}
+
+.gallery-container {
+  position: absolute;
+  top:  5%;
+  bottom: 5%;
+  height: 90%;
+  border-radius: 20px;
+  background-position: center;
+  background-size: cover;
+  transition: 1s;
+  z-index: 4;
+}
+
+.gallery-container-outer-left {
+  left: -66%;
+  width: 60%;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 5px 10px black) saturate(30%) brightness(30%);
+  opacity: 0;
+}
+
+.gallery-container-left {
+  left: -17%;
+  width: 60%;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 5px 10px black) saturate(30%) brightness(70%);
+}
+
+.gallery-container-middle {
+  left: 50%;
+  width: 70%;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 5px 10px black);
+}
+
+.gallery-container-right {
+  left: 117%;
+  width: 60%;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 5px 10px black) saturate(30%) brightness(70%);
+}
+
+.gallery-container-outer-right {
+  left: 166%;
+  width: 60%;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 5px 10px black) saturate(30%) brightness(30%);
+  opacity: 0;
 }
 
 #trailer-overlay {
@@ -308,6 +405,9 @@ html {
   font-size: 50px;
   transition: 0.15s ease-in;
   cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .socicon-youtube:hover {
@@ -384,5 +484,54 @@ html {
     width: 100%;
     left: 0;
     right: 0;
+  }
+
+  #gallery {
+    height: 30vh;
+  }
+
+  .gallery-container {
+    border-radius: 0;
+  }
+
+  .gallery-container-middle {
+    width: 100%;
+  }
+
+  .gallery-container-left {
+    left: -30%;
+  }
+
+  .gallery-container-right {
+    left: 130%;
+  }
+
+  #gallery i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 50px;
+    z-index: 4;
+  }
+
+  #gallery i:hover {
+    font-size: 55px;
+    color: #ededed;
+  }
+
+  #gallery #icon-left {
+    left: 1.5%;
+  }
+
+  #gallery #icon-left:hover {
+    left: 1.2%;
+  }
+
+  #gallery #icon-right {
+    right: 1.5%;
+  }
+
+  #gallery #icon-right:hover {
+    right: 1.2%;
   }
 }

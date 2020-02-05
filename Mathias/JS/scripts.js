@@ -36,6 +36,7 @@
       }
      });
    }
+
  });
 
  function openOrCloseMenu() {
@@ -62,4 +63,46 @@
    document.getElementById('trailer-overlay').style.display = 'none';
    document.getElementById('trailer-video').pause();
    document.getElementById('trailer-video').currentTime = 0;
+ }
+
+ function galleryScrollRight() {
+
+   document.getElementById('scrollRight').style = "pointer-events: none";
+
+   let gallery = document.getElementById('gallery').querySelectorAll('.gallery-container');
+   let classes = [];
+
+   for(let i = 0; i < gallery.length; i++){
+     classes.push(gallery[i].classList[1]);
+   }
+
+   classes.unshift(classes.pop());
+
+   for(let i = 0; i < gallery.length; i++){
+     gallery[i].classList.remove(gallery[i].classList[1]);
+     gallery[i].classList.add(classes[i]);
+   }
+
+   setTimeout(() => {document.getElementById('scrollRight').style = "pointer-events: auto";}, 1000);
+ }
+
+ function galleryScrollLeft() {
+
+   document.getElementById('scrollLeft').style = "pointer-events: none";
+
+   let gallery = document.getElementById('gallery').querySelectorAll('.gallery-container');
+   let classes = [];
+
+   for(let i = 0; i < gallery.length; i++){
+     classes.push(gallery[i].classList[1]);
+   }
+
+   classes.push(classes.shift());
+
+   for(let i = 0; i < gallery.length; i++){
+     gallery[i].classList.remove(gallery[i].classList[1]);
+     gallery[i].classList.add(classes[i]);
+   }
+
+   setTimeout(() => {document.getElementById('scrollLeft').style = "pointer-events: auto";}, 1000);
  }

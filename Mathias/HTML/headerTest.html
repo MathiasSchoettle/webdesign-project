@@ -14,6 +14,7 @@
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+  <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
 </head>
 
 <body>
@@ -120,10 +121,17 @@
     </div>
   </div>
 
+  <div id="gallery">
+    <div style="background-image: url('../Ressources/Images/test4.jpg');" class="gallery-container gallery-container-outer-left"></div>
+    <div style="background-image: url('../Ressources/Images/test5.jpg');" class="gallery-container gallery-container-left"></div>
+    <div style="background-image: url('../Ressources/Images/test1.jpg');" class="gallery-container gallery-container-middle"></div>
+    <div style="background-image: url('../Ressources/Images/test2.jpg');" class="gallery-container gallery-container-right"></div>
+    <div style="background-image: url('../Ressources/Images/test3.jpg');" class="gallery-container gallery-container-outer-right"></div>
+    <span id="scrollLeft" onclick="galleryScrollLeft()"><i id="icon-left" class="material-icons">keyboard_arrow_left</i></span>
+    <span id="scrollRight" onclick="galleryScrollRight()"><i id="icon-right" class="material-icons">keyboard_arrow_right</i></span>
+  </div>
+
   <div class="filler" id="pyra">CONTENT - PYRA</div>
-
-  <div class="filler">CONTENT - GALLERY</div>
-
 
   <div id="trailer-overlay">
     <div id="color-overlay"></div>
