@@ -2,6 +2,7 @@
   font-family: "revue";
   src: url("../Ressources/Fonts/revue.otf");
 }
+
 @font-face {
   font-family: 'Montserrat', sans-serif;
 }
@@ -16,8 +17,7 @@ body {
 }
 
 #reviewSection {
-  height: calc(100vh - 110px);
-	position: relative;
+  position: relative;
   padding: 0;
   margin: 0;
   border: 0;
@@ -39,7 +39,6 @@ body {
   max-height: 100%;
   width: auto;
   height: auto;
-  position: absolute;
   filter: saturate(30%) contrast(85%);
 }
 
@@ -59,7 +58,6 @@ body {
 
 .wholeRevContainer {
   display: block;
-  overflow: auto;
   position: absolute;
   width: 58%;
   padding-left: 5%;
@@ -76,15 +74,62 @@ body {
   margin-left: -20%;
 }
 
+@media only screen and (max-width: 800px) {
+
+  #reviewSection {
+    min-height: 450px;
+    min-width: 350px;
+  }
+  .posterImage {
+    filter: saturate(30%) contrast(85%) brightness(50%);
+    max-height: 75%;
+    max-width: 100%;
+    margin-left: -8%
+  }
+
+  #face {
+    width: 100%;
+    z-index: -1;
+    text-align: center;
+  }
+
+  .wholeRevContainer {
+    width: 90%;
+    padding-right: 5%;
+    text-align: center;
+    vertical-align: text-bottom;
+    top: 100%;
+    margin-top: -250px;
+  }
+
+  .cite {
+    margin-top: 2%;
+    font-size: 32px;
+  }
+
+  .name {
+    font-size: 15px;
+    margin-top: 10px;
+  }
+
+  .starRev i {
+    font-size: 50px;
+  }
+  .starRev {
+    margin-left: 0;
+  }
+
+  @media only screen and (max-width: 450px) {
+    .cite {
+      font-size: 24px;
+    }
+    .name {
+      font-size: 12px;
+    }
+  }
+}
+
 #test {
   height: 100vh;
   background-color: red;
-}
-
-
-@media only screen and (max-width: 800px) {
-  #face {
-    
-  }
-
 }
