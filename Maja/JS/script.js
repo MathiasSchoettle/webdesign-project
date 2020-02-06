@@ -66,30 +66,6 @@ function showStars(starNum) {
   }
 }
 
-
-
-reviews = [{
-    stars: 1,
-    cite: "TRUST ME, THIS IS THE WORST MOVIE YOU WILL EVER SEE IN YOUR ENTIRE LIFE",
-    name: "RCARSTAIRS, IMDB"
-  },
-  {
-    stars: 0.5,
-    cite: "THE ROOM IS SO UNFEASIBLY BAD IT HAS BECOME A CULT HIT",
-    name: "STEVE ROSE, THE GUARDIAN"
-  },
-  {
-    stars: 1,
-    cite: "YOU REALLY CAN'T BELIEVE HOW TERRIBLE THE ROOM IS",
-    name: "ALONSO DURALDE, IMDB"
-  },
-  {
-    stars: 1.5,
-    cite: "I DIDN'T THINK IT WAS POSSIBLE TO MAKE A FILM SO BAD",
-    name: "KRISTINE, IMDB"
-  }
-];
-
 function generateSpeed() {
   return Math.floor(Math.random() * 30) + 30;
 }
