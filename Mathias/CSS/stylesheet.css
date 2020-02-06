@@ -7,19 +7,22 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+:root {
+  --bg-color: #141414;
+  --text-color: #ededed;
+}
+
 body {
   padding: 0;
   margin: 0;
-  background: #141414;
   min-width: 350px;
+  color: var(--text-color);
+  background-color: var(--bg-color);
 }
 
 html {
   scroll-behavior: smooth;
 }
-
-/* black => #141414 */
-/* white => #ededed */
 
 ::-webkit-scrollbar {
   display: none;
@@ -35,12 +38,16 @@ html {
 
 .navbar {
   height: 110px;
-  background-color: #141414;
+  background-color: var(--bg-color);
+}
+
+.navbar a {
+  color: var(--text-color);
 }
 
 .navbar-fadeout {
   height: 15px;
-  background-image: linear-gradient(#141414, transparent);
+  background-image: linear-gradient(var(--bg-color), transparent);
 }
 
 .top-filler {
@@ -48,7 +55,6 @@ html {
 }
 
 .header-link {
-  background-color: #141414;
   width: 17.5%;
   height: 100%;
   float: left;
@@ -58,7 +64,7 @@ html {
 }
 
 .header-link a, .header-dropdown-menu a, #footer-nav a {
-  color: #ededed;
+  color: var(--text-color);
   transition: 0.2s ease;
   text-decoration: none;
   font-family: Montserrat;
@@ -73,7 +79,6 @@ html {
 
 .header-logo {
   font-family: revue;
-  background-color: #141414;
   width: 30%;
   height: 100%;
   float: left;
@@ -84,7 +89,6 @@ html {
   transition: 0.2s ease;
   font-size: 44px;
   line-height: 110px;
-  color: #ededed;
   text-decoration: none;
 }
 
@@ -93,10 +97,10 @@ html {
 }
 
 .header-menu-button {
+  color: var(--text-color);
+  background-color: transparent;
   display: none;
   float: right;
-  color: #ededed;
-  background-color: #141414;
   cursor: pointer;
   margin-right: 20px;
   outline: 0;
@@ -112,7 +116,7 @@ html {
 }
 
 .header-dropdown-menu {
-  background-color: #141414;
+  background-color: var(--bg-color);
   height: 0px;
   width: 100%;
   transition: 0.3s ease;
@@ -128,59 +132,130 @@ html {
   text-align: center;
 }
 
-.user-review-container {
-  height: 200px;
-  color: #ededed;
-  background-color: #141414;
-}
-
-#user-review-star-container {
+#user-review-container {
   text-align: center;
-  letter-spacing: -4px;
+  padding: 100px 0;
+  transition: 1s;
+  overflow: hidden;
+  max-height: 1000px;
 }
 
-#user-review-star-container i {
-    font-size: 70px;
-    line-height: 100px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
+  #review-stars {
+  position: relative;
+  height: 100px;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
-#star-1, #star-2, #star-3, #star-4, #star-5 {
+#review-hover-container{
+  position: absolute;
+  width: 350px;
+  top: 0;
+  border: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
   cursor: pointer;
+  color: var(--text-color);
 }
 
-.user-review-button-container {
-  line-height: 100px;
+#full-stars {
+  height: 100%;
+  overflow: hidden;
+  width: 0px;
+  letter-spacing: -12px;
+  transition: 0.1s;
+}
+
+#border-stars {
+  position: absolute;
+  height: 100%;
+  width: 350px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  letter-spacing: -12px;
+  transition: 0.6s;
+}
+
+#full-stars div {
+  width: 350px;
+}
+
+#full-stars i, #border-stars i {
+  display: inline;
+  width: 70px;
+  height: 100%;
   text-align: center;
+  line-height: 100px;
+}
+
+#full-stars i {
+  width: 350px;
+}
+
+#full-stars .material-icons, #border-stars .material-icons {
+  font-size: 70px;
+}
+
+#review-form {
   width: 100%;
 }
 
-.user-review-button-container button {
-  decoration: none;
-  padding: 10px 60px;
+#review-form input, #review-form textarea {
+  width: 5
+  50px;
   font-family: Montserrat;
-  font-weight: bolder;
+  font-size: 30px;
+  text-align: center;
   background-color: transparent;
-  color: #ededed;
-  border: 3px solid #ededed;
-  transition: 0.2s;
+  color: var(--text-color);
+  resize: none;
+  border: 2px solid var(--text-color);
+  padding: 20px;
+  outline: none;
+  text-transform: uppercase;
+  transition: 0.1s;
+}
+
+#review-form textarea {
+  margin-bottom: 4px;
+}
+
+#review-form textarea:focus {
+  margin: 0px;
+  border-width: 2px 2px 6px 2px;
+}
+
+
+#review-form input {
+  border: none;
+  border-bottom: 2px solid var(--text-color);
+  margin-bottom: 30px;
+  font-size: 22px;
+}
+
+#review-form input:focus {
+  border-bottom: 6px solid var(--text-color);
+  margin-bottom: 26px;
+}
+
+#review-form button {
+  background-color: transparent;
+  color: var(--text-color);
+  font-family: Montserrat;
+  font-size: 22px;
+  padding: 10px 50px;
+  outline: none;
+  font-weight: bold;
+  border: 2px solid var(--text-color);
+  transition: 0.3s;
   cursor: pointer;
 }
 
-.user-review-button-container button:hover {
-  background-color: #ededed;
-  color: #141414;
-}
-
-.user-review-button-container button:active {
-  background-color: #141414;
-  color: #6f6f6f;
-}
-
-.user-review-button-container button:focus {
-  outline: 0;
+#review-form button:hover {
+  background-color: var(--text-color);
+  color: var(--bg-color);
 }
 
 #trailer-container {
@@ -199,7 +274,7 @@ html {
   left: 0;
   right: 0;
   opacity: 0.3;
-  background-color: #141414;
+  background-color: var(--bg-color);
   overflow:hidden;
   z-index: -1;
 }
@@ -209,12 +284,11 @@ html {
   line-height: 400px;
   color: #bdbdbd;
   transition: 0.2s;
-  filter: drop-shadow(0 0 10px #141414);
+  filter: drop-shadow(0 0 10px var(--bg-color));
   cursor: pointer;
 }
 
 #trailer-container i:hover {
-  color: #ededed;
   font-size: 205px;
 }
 
@@ -231,8 +305,6 @@ html {
 .filler {
   font-family: revue;
   height: 600px;
-  color: #ededed;
-  background-color: #141414;
   text-align: center;
   font-size: 22px;
   line-height: 600px;
@@ -262,7 +334,7 @@ html {
 
 #gallery i:hover {
   font-size: 110px;
-  color: #ededed;
+  color: var(--text-color);
 }
 
 #gallery #icon-left {
@@ -286,7 +358,6 @@ html {
   top:  5%;
   bottom: 5%;
   height: 90%;
-  border-radius: 20px;
   background-position: center;
   background-size: cover;
   transition: 1s;
@@ -379,17 +450,16 @@ html {
   display: block;
   top: 10px;
   right: 10px;
-  color: #ededed;
+  color: var(--text-color);
   z-index: 11;
 }
 
 .footer {
   height: 200px;
-  color: #ededed;
+  color: var(--text-color);
 }
 
 .footer-social-media {
-  background-color: #141414;
   height: 140px;
   text-align: center;
   line-height: 175px;
@@ -397,7 +467,7 @@ html {
 
 .footer-social-media a {
   text-decoration: none;
-  color: #ededed;
+  color: var(--text-color);
 }
 
 .footer-icon {
@@ -427,8 +497,7 @@ html {
 }
 
 .footer-other {
-  height: 60px;
-  background-color: #141414;
+  height: 80px;
   font-family: Montserrat;
   text-align: center;
   padding-bottom: 10px;
@@ -438,18 +507,19 @@ html {
   height: 40px;
   text-align: center;
   line-height: 40px;
-  color: #ededed;
 }
 
 #footer-nav a {
   padding: 0 5px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: bold;
   text-decoration: none;
-  color: #ededed;
+  color: var(--text-color);
 }
 
 #footer-copyright {
+  height: 40px;
+  line-height: 40px;
   font-size: 10px;
   margin: 0;
   padding: 0;
@@ -516,7 +586,7 @@ html {
 
   #gallery i:hover {
     font-size: 55px;
-    color: #ededed;
+    color: var(--text-color);
   }
 
   #gallery #icon-left {
@@ -533,5 +603,9 @@ html {
 
   #gallery #icon-right:hover {
     right: 1.2%;
+  }
+
+  #review-form input, #review-form textarea {
+    width: 300px;
   }
 }
