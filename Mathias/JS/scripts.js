@@ -46,9 +46,19 @@ function galleryScroll(isRight, id) {
 
 function submitForm() {
   if(checkReviewText() & checkReviewName() & checkReviewScore()){
-    document.getElementById('user-review-container').style.maxHeight = '0';
-    document.getElementById('user-review-container').style.padding = '0';
+    var cont = document.getElementById('user-review-container')
+    cont.style.maxHeight = '0';
+    cont.style.padding = '0';
+    var thanks = document.getElementById('user-review-success');
+    thanks.style.maxHeight = '1000px';
+    thanks.style.paddingTop = '100px';
+    scrollToElement(cont);
   }
+}
+
+function scrollToElement(element) {
+  var thanks = document.getElementById('user-review-success');
+  window.scrollTo(0, element.offsetTop - 150);
 }
 
 function checkReviewScore(){

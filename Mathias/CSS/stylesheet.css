@@ -39,15 +39,11 @@ html {
 .navbar {
   height: 110px;
   background-color: var(--bg-color);
+  box-shadow: 0px 7px 20px 5px rgba(0,0,0,0.5);
 }
 
 .navbar a {
   color: var(--text-color);
-}
-
-.navbar-fadeout {
-  height: 15px;
-  background-image: linear-gradient(var(--bg-color), transparent);
 }
 
 .top-filler {
@@ -225,6 +221,7 @@ html {
 #review-form textarea:focus {
   margin: 0px;
   border-width: 2px 2px 6px 2px;
+  border-color: var(--text-color);
 }
 
 
@@ -238,6 +235,7 @@ html {
 #review-form input:focus {
   border-bottom: 6px solid var(--text-color);
   margin-bottom: 26px;
+  border-color: var(--text-color);
 }
 
 #review-form button {
@@ -253,9 +251,17 @@ html {
   cursor: pointer;
 }
 
-#review-form button:hover {
+#review-form button:hover, #review-form button:focus {
   background-color: var(--text-color);
   color: var(--bg-color);
+}
+
+#user-review-success {
+  text-align: center;
+  font-size: 40px;
+  line-height: 60px;
+  overflow: hidden;
+  max-height: 0px;
 }
 
 #trailer-container {

@@ -22,19 +22,19 @@
   <header class="header">
     <nav class="navbar">
       <div class="header-link">
-        <a href="#gallery">GALLERY</a>
+        <a href="#" onclick="scrollToElement(document.getElementById('gallery'));event.preventDefault();">GALLERY</a>
       </div>
       <div class="header-link">
-        <a href="#pyra">PYRA</a>
+        <a href="#" onclick="scrollToElement(document.getElementById('pyra'));event.preventDefault();">PYRA</a>
       </div>
       <div class="header-logo">
         <a href="#">THE ROOM</a>
       </div>
       <div class="header-link">
-        <a href="#trailer-container">TRAILER</a>
+        <a href="#" onclick="scrollToElement(document.getElementById('trailer-container'));event.preventDefault();">TRAILER</a>
       </div>
       <div class="header-link">
-        <a href="#john">JOHN</a>
+        <a href="#" onclick="scrollToElement(document.getElementById('john'));event.preventDefault();">JOHN</a>
       </div>
 
       <button id="menubtn" onclick="openOrCloseMenu()" type="button" name="menubutton" class="header-menu-button"><i id="menubtnico" class="material-icons">menu</i></button>
@@ -42,20 +42,18 @@
 
     <nav class="header-dropdown-menu" id="mainMenuDropDownItems">
       <div class="header-menu-link">
-        <a href="#gallery">GALLERY</a>
+        <a href="#" onclick="scrollToElement(document.getElementById('gallery'));openOrCloseMenu();event.preventDefault();">GALLERY</a>
       </div>
       <div class="header-menu-link">
-        <a href="#pyra">PYRA</a>
+        <a href="#" onclick="scrollToElement(document.getElementById('pyra'));openOrCloseMenu();event.preventDefault();">PYRA</a>
       </div>
       <div class="header-menu-link">
-        <a href="#trailer-container">TRAILER</a>
+        <a href="#" onclick="scrollToElement(document.getElementById('trailer-container'));openOrCloseMenu();event.preventDefault();">TRAILER</a>
       </div>
       <div class="header-menu-link">
-        <a href="#john">JOHN</a>
+        <a href="#" onclick="scrollToElement(document.getElementById('john'));openOrCloseMenu();event.preventDefault();">JOHN</a>
       </div>
     </nav>
-
-    <div class="navbar-fadeout"></div> <!-- gradient -->
   </header>
 
   <div class="top-filler"></div> <!-- fills space the header occupies when at top -->
@@ -107,7 +105,9 @@
     </form>
   </div>
 
-
+  <div id="user-review-success">
+    <p><strong>THANK YOU<br>❤️<br>FOR YOUR REVIEW</strong></p>
+  </div>
 
   <div id="gallery">
     <div style="background-image: url('../Ressources/Images/test4.jpg');" class="gallery-container gallery-container-outer-left"></div>
@@ -119,7 +119,7 @@
     <span id="scrollRight" onclick="galleryScroll(true, this.id)"><i id="icon-right" class="material-icons">keyboard_arrow_right</i></span>
   </div>
 
-  <div class="filler" id="pyra">CONTENT - PYRA</div>
+  <div class="filler" id="pyra">CONTENT - PYRA</div>  
 
   <div id="trailer-overlay">
     <div id="color-overlay"></div>
