@@ -21,6 +21,11 @@ var reviews = [{
     stars: 1.5,
     cite: "I DIDN'T THINK IT WAS POSSIBLE TO MAKE A FILM SO BAD",
     name: "KRISTINE, IMDB"
+  },
+  {
+    stars: 4,
+    cite: "THIS HAS BEEN THE WORST MOVIE IN THE HISTORY OF MOVIES, MAYBE EVER.",
+    name: "MATHIAS SCHÖTTLE, OTH"
   }
 ];
 
@@ -33,7 +38,7 @@ function showWindowSize() {
 
 function showStars(starNum) {
   var starDiv = document.getElementsByClassName('starRev')[0];
-  while(starDiv.firstChild){
+  while (starDiv.firstChild) {
     starDiv.removeChild(starDiv.firstChild);
   }
   if (starNum % 1 === 0) {
@@ -47,98 +52,133 @@ function showStars(starNum) {
   for (let i = 0; i < wholeStars; i++) {
     var starElem = document.createElement('i');
     starElem.classList.add('material-icons');
-    starElem.innerHTML = "star";
+    starElem.textContent = "star";
     starDiv.appendChild(starElem);
   }
 
   for (let i = 0; i < halfStars; i++) {
     var starElem = document.createElement('i');
     starElem.classList.add('material-icons');
-    starElem.innerHTML = "star_half";
+    starElem.textContent = "star_half";
     starDiv.appendChild(starElem);
   }
 
   for (let i = 0; i < 5 - (wholeStars + halfStars); i++) {
     var starElem = document.createElement('i');
     starElem.classList.add('material-icons');
-    starElem.innerHTML = "star_border";
+    starElem.textContent = "star_border";
     starDiv.appendChild(starElem);
   }
 }
 
 function generateSpeed() {
-  return Math.floor(Math.random() * 30) + 30;
+  return Math.floor(Math.random() * 20) + 40;
 }
 
 function typeWrite(index = 0) {
   var cite = '\"' + reviews[index].cite + '\"';
-  var name = '- ' + reviews[index].name;
+  var name = '- ' + reviews[index].name + ' ';
   var i = 0;
 
   var starDiv = document.getElementsByClassName('starRev')[0];
   var citeElem = document.getElementsByClassName('cite')[0];
   var nameElem = document.getElementsByClassName('name')[0];
 
+  var cursorSpeed = 400;
+  var delSpeed = 15;
 
-  var speed = generateSpeed()
-
+  if (window.innerWidth > 800) {
+    citeElem.textContent = '|';
+  }
+  showStars(0);
   startWriting();
 
   function startWriting() {
-    showStars(0);
     setTimeout(function() {
       showStars(reviews[index].stars);
-      typeWriteCite();
     }, 1000);
+    setTimeout(cursorAnimation, 0, citeElem, 4, 0)
   }
 
-  function typeWriteCite() {
-    if (i < cite.length) {
-      citeElem.innerHTML += cite.charAt(i);
-      i++;
-      setTimeout(typeWriteCite, speed);
-    } else {
-      i = 0;
-      setTimeout(typeWriteName, speed);
-    }
-  }
-
-  function typeWriteName() {
-    if (i < name.length) {
-      nameElem.innerHTML += name.charAt(i);
-      i++;
-      setTimeout(typeWriteName, speed);
-    } else {
-      i = 0;
-      speed /= 3;
-      setTimeout(typeRemName, speed + 1000);
-    }
-  }
-
-  function typeRemName() {
-    if (i <= name.length) {
-      nameElem.innerHTML = name.substring(0, name.length - i);
-      i++;
-      setTimeout(typeRemName, speed);
-    } else {
-      i = 0;
-      setTimeout(typeRemCite, speed);
-    }
-  }
-
-  function typeRemCite() {
-    if (i <= cite.length) {
-      citeElem.innerHTML = cite.substring(0, cite.length - i);
-      i++;
-      setTimeout(typeRemCite, speed);
-    } else {
-      i = 0;
-      if (index >= reviews.length -1) {
-        index = 0;
-      } else {
-        index++;
+  function typeWriteLetter(elem, text) {
+    if (i < text.length) {
+      var temp = "";
+      if (i > 0) {
+        temp = elem.textContent.substring(0, i);
       }
-      typeWrite(index)
+      if (window.innerWidth > 800) {
+        elem.textContent = temp + text.charAt(i) + "|";
+      } else {
+        elem.textContent = temp + text.charAt(i);
+      }
+      i++;
+      setTimeout(typeWriteLetter, generateSpeed(), elem, text);
+    } else {
+      if (elem.classList.contains('cite')) {
+        i = 0;
+        setTimeout(cursorAnimation, 0, elem, 1, 0);
+      } else {
+        i = 0;
+        setTimeout(cursorAnimation, cursorSpeed / 2, nameElem, 3, 0);
+      }
     }
   }
+
+  function typeRem(elem, text) {
+    if (text != undefined & i <= text.length) {
+      if (window.innerWidth > 800) {
+        elem.textContent = text.substring(0, text.length - i) + "|";
+      } else {
+        elem.textContent = text.substring(0, text.length - i);
+      }
+      i++;
+      setTimeout(typeRem, delSpeed, elem, text);
+    } else {
+      if (window.innerWidth > 800) {
+      elem.textContent = text.substring(0, text.length - i);
+    }
+      i = 0;
+      if (elem.classList.contains('name')) {
+        setTimeout(typeRem, delSpeed, citeElem, cite);
+      } else {
+        if (index >= reviews.length - 1) {
+          index = 0;
+        } else {
+          index++;
+        }
+        typeWrite(index);
+      }
+    }
+  }
+
+  function cursorAnimation(elem, cursorIdle, i) {
+    var textWithCursor = elem.textContent;
+    console.log(textWithCursor);
+    var textWithoutCursor = textWithCursor.substring(0, textWithCursor.length - 1)
+    console.log(textWithoutCursor);
+    if (i < cursorIdle) {
+      if (window.innerWidth > 800) {
+        elem.textContent = textWithoutCursor;
+        console.log(window.innerWidth);
+        setTimeout(cursorVisible, cursorSpeed, elem, textWithCursor, textWithoutCursor, cursorIdle, ++i);
+      } else {
+        setTimeout(cursorAnimation, cursorSpeed * 2, elem, cursorIdle, ++i);
+      }
+    } else if (elem.classList.contains('name')) {
+      setTimeout(typeRem, 0, nameElem, name, 0);
+    } else if (cursorIdle > 1) {
+      setTimeout(typeWriteLetter, 0, citeElem, cite)
+    } else {
+      if (window.innerWidth > 800) {
+      elem.textContent = textWithoutCursor
+    }
+      setTimeout(typeWriteLetter, 0, nameElem, name);
+    }
+  }
+
+  function cursorVisible(elem, textWithCursor, textWithoutCursor, cursorIdle, i) {
+    elem.textContent = textWithCursor;
+    setTimeout(cursorAnimation, cursorSpeed, elem, cursorIdle, i);
+  }
+
 }
