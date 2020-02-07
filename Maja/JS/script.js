@@ -153,13 +153,10 @@ function typeWrite(index = 0) {
 
   function cursorAnimation(elem, cursorIdle, i) {
     var textWithCursor = elem.textContent;
-    console.log(textWithCursor);
     var textWithoutCursor = textWithCursor.substring(0, textWithCursor.length - 1)
-    console.log(textWithoutCursor);
     if (i < cursorIdle) {
       if (window.innerWidth > 800) {
         elem.textContent = textWithoutCursor;
-        console.log(window.innerWidth);
         setTimeout(cursorVisible, cursorSpeed, elem, textWithCursor, textWithoutCursor, cursorIdle, ++i);
       } else {
         setTimeout(cursorAnimation, cursorSpeed * 2, elem, cursorIdle, ++i);
