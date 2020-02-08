@@ -54,7 +54,7 @@ function submitForm() {
     thanks.style.paddingTop = '100px';
     scrollToElement(cont);
     localStorage.setItem('hasWrittenReview', true);
-    writeReview(document.getElementById('review-text').value.trim().toUpperCase(), document.getElementById('review-name').value.trim().toUpperCase(), (document.getElementById('full-stars').offsetWidth / 60));
+    writeReview(document.getElementById('review-text').value.trim().toUpperCase(), document.getElementById('review-name').value.trim().toUpperCase(), (document.getElementById('full-stars').offsetWidth / 70));
   }
 }
 
