@@ -2,79 +2,25 @@ showWindowSize();
 
 window.addEventListener("resize", showWindowSize);
 
-var reviews = [{
-    stars: 1,
-    cite: "TRUST ME, THIS IS THE WORST MOVIE YOU WILL EVER SEE IN YOUR ENTIRE LIFE",
-    name: "RCARSTAIRS, IMDB"
-  },
-  {
-    stars: 0.5,
-    cite: "THE ROOM IS SO UNFEASIBLY BAD IT HAS BECOME A CULT HIT",
-    name: "STEVE ROSE, THE GUARDIAN"
-  },
-  {
-    stars: 1,
-    cite: "YOU REALLY CAN'T BELIEVE HOW TERRIBLE THE ROOM IS",
-    name: "ALONSO DURALDE, IMDB"
-  },
-  {
-    stars: 1.5,
-    cite: "I DIDN'T THINK IT WAS POSSIBLE TO MAKE A FILM SO BAD",
-    name: "KRISTINE, IMDB"
-  },
-  {
-    stars: 4,
-    cite: "THIS HAS BEEN THE WORST MOVIE IN THE HISTORY OF MOVIES, MAYBE EVER.",
-    name: "MATHIAS SCHÖTTLE, OTH"
-  }
-];
+var db = firebase.firestore();
+var reviews = [];
 
-typeWrite();
+db.collection("reviewSection").get().then(function(querySnapshot) {
+  querySnapshot.forEach(function(doc) {
+    var name = doc.data().name;
+    var cite = doc.data().text;
+    var stars = doc.data().stars;
+    reviews.push({
+      cite: cite,
+      name: name,
+      stars: stars
+    });
+  });
+  reviews = randomize(reviews);
+  typeWrite()
+});
 
-function showWindowSize() {
-  let vh = window.innerHeight * 0.01;
-  document.getElementById('reviewSection').style.height = (100 * vh - 110) + 'px';
-}
-
-function showStars(starNum) {
-  var starDiv = document.getElementsByClassName('starRev')[0];
-  while (starDiv.firstChild) {
-    starDiv.removeChild(starDiv.firstChild);
-  }
-  if (starNum % 1 === 0) {
-    var wholeStars = starNum;
-    var halfStars = 0;
-  } else {
-    var wholeStars = Math.floor(starNum);
-    var halfStars = 1;
-  }
-
-  for (let i = 0; i < wholeStars; i++) {
-    var starElem = document.createElement('i');
-    starElem.classList.add('material-icons');
-    starElem.textContent = "star";
-    starDiv.appendChild(starElem);
-  }
-
-  for (let i = 0; i < halfStars; i++) {
-    var starElem = document.createElement('i');
-    starElem.classList.add('material-icons');
-    starElem.textContent = "star_half";
-    starDiv.appendChild(starElem);
-  }
-
-  for (let i = 0; i < 5 - (wholeStars + halfStars); i++) {
-    var starElem = document.createElement('i');
-    starElem.classList.add('material-icons');
-    starElem.textContent = "star_border";
-    starDiv.appendChild(starElem);
-  }
-}
-
-function generateSpeed() {
-  return Math.floor(Math.random() * 20) + 40;
-}
-
+// type writing animation
 function typeWrite(index = 0) {
   var cite = '\"' + reviews[index].cite + '\"';
   var name = '- ' + reviews[index].name + ' ';
@@ -135,8 +81,8 @@ function typeWrite(index = 0) {
       setTimeout(typeRem, delSpeed, elem, text);
     } else {
       if (window.innerWidth > 800) {
-      elem.textContent = text.substring(0, text.length - i);
-    }
+        elem.textContent = text.substring(0, text.length - i);
+      }
       i = 0;
       if (elem.classList.contains('name')) {
         setTimeout(typeRem, delSpeed, citeElem, cite);
@@ -167,8 +113,8 @@ function typeWrite(index = 0) {
       setTimeout(typeWriteLetter, 0, citeElem, cite)
     } else {
       if (window.innerWidth > 800) {
-      elem.textContent = textWithoutCursor
-    }
+        elem.textContent = textWithoutCursor
+      }
       setTimeout(typeWriteLetter, 0, nameElem, name);
     }
   }
@@ -178,4 +124,77 @@ function typeWrite(index = 0) {
     setTimeout(cursorAnimation, cursorSpeed, elem, cursorIdle, i);
   }
 
+}
+
+// utils
+
+function generateSpeed() {
+  return Math.floor(Math.random() * 20) + 40;
+}
+
+function randomize(list) {
+  var i = list.length;
+  var temp;
+  var j;
+
+  while (0 !== i) {
+
+    j = Math.floor(Math.random() * i);
+    i -= 1;
+
+    temp = list[i];
+    list[i] = list[j];
+    list[j] = temp;
+  }
+
+  return list;
+}
+
+// display utils
+
+function showWindowSize() {
+  let vh = window.innerHeight * 0.01;
+  document.getElementById('reviewSection').style.height = (100 * vh - 110) + 'px';
+}
+
+function showStars(starNum) {
+  var starDiv = document.getElementsByClassName('starRev')[0];
+  while (starDiv.firstChild) {
+    starDiv.removeChild(starDiv.firstChild);
+  }
+  if (starNum % 1 === 0) {
+    var wholeStars = starNum;
+    var halfStars = 0;
+  } else {
+    var wholeStars = Math.floor(starNum);
+    if (starNum - wholeStars > 0.85) {
+      wholeStars++;
+      var halfStars = 0;
+    } else if (starNum - wholeStars < 0.15) {
+      var halfStars = 0;
+    } else {
+      var halfStars = 1;
+    }
+  }
+
+  for (let i = 0; i < wholeStars; i++) {
+    var starElem = document.createElement('i');
+    starElem.classList.add('material-icons');
+    starElem.textContent = "star";
+    starDiv.appendChild(starElem);
+  }
+
+  for (let i = 0; i < halfStars; i++) {
+    var starElem = document.createElement('i');
+    starElem.classList.add('material-icons');
+    starElem.textContent = "star_half";
+    starDiv.appendChild(starElem);
+  }
+
+  for (let i = 0; i < 5 - (wholeStars + halfStars); i++) {
+    var starElem = document.createElement('i');
+    starElem.classList.add('material-icons');
+    starElem.textContent = "star_border";
+    starDiv.appendChild(starElem);
+  }
 }
