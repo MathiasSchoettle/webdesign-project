@@ -479,7 +479,7 @@ html {
 .footer-icon {
   padding: 0 5%;
   font-size: 50px;
-  transition: 0.15s ease-in;
+  transition: 0.5s;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -495,11 +495,11 @@ html {
 }
 
 .socicon-twitter:hover {
-   color: #00aced;
+  color: #00aced;
 }
 
-.socicon-mail:hover {
-   color: #ffd15c;
+.socicon-instagram:hover {
+  color: #fb3958;
 }
 
 .footer-other {

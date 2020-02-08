@@ -53,6 +53,8 @@ function submitForm() {
     thanks.style.maxHeight = '1000px';
     thanks.style.paddingTop = '100px';
     scrollToElement(cont);
+    localStorage.setItem('hasWrittenReview', true);
+    writeReview(document.getElementById('review-text').value.trim().toUpperCase(), document.getElementById('review-name').value.trim().toUpperCase(), (document.getElementById('full-stars').offsetWidth / 60));
   }
 }
 
@@ -122,4 +124,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
   stars.addEventListener('click', function() {
     score = document.getElementById('full-stars').offsetWidth;
   })
+
+  if(localStorage.getItem('hasWrittenReview') == 'true'){
+    var cont = document.getElementById('user-review-container').remove();
+    var thanks = document.getElementById('user-review-success');
+    thanks.style.maxHeight = '1000px';
+    thanks.style.paddingTop = '100px';
+  }
 });
+
+function writeReview(text, name, stars) {
+  var db = firebase.firestore();
+  db.collection("reviewSection").add({
+    text: text,
+    name: name,
+    stars: stars
+  });
+}
