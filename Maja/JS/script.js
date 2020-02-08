@@ -162,7 +162,10 @@ function showStars(starNum) {
   while (starDiv.firstChild) {
     starDiv.removeChild(starDiv.firstChild);
   }
-  if (starNum % 1 === 0) {
+  if (starNum > 5) {
+    var wholeStars = 5;
+    var halfStars = 0;
+  } else if (starNum % 1 === 0) {
     var wholeStars = starNum;
     var halfStars = 0;
   } else {
