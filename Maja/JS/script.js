@@ -170,10 +170,10 @@ function showStars(starNum) {
     var halfStars = 0;
   } else {
     var wholeStars = Math.floor(starNum);
-    if (starNum - wholeStars > 0.85) {
+    if (starNum - wholeStars > 0.8) {
       wholeStars++;
       var halfStars = 0;
-    } else if (starNum - wholeStars < 0.15) {
+    } else if (starNum - wholeStars < 0.2) {
       var halfStars = 0;
     } else {
       var halfStars = 1;
