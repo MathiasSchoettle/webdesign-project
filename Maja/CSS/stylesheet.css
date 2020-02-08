@@ -1,0 +1,137 @@
+@font-face {
+  font-family: "revue";
+  src: url("../Ressources/Fonts/revue.otf");
+}
+
+@font-face {
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background-color: #141414;
+  color: #ededed;
+  font-family: "Montserrat";
+  margin: 0;
+  padding: 0;
+}
+
+#reviewSection {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: 100%;
+  min-height: 600px;
+  line-height: 1.5;
+  overflow: hidden;
+}
+
+#face {
+  width: 45%;
+  height: 100%;
+  float: right;
+  position: relative;
+  margin-right: -3%;
+  z-index: -1;
+}
+
+.posterImage {
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  filter: saturate(30%) contrast(85%);
+}
+
+.cite, .name {
+  margin: 0;
+  padding: 0;
+}
+
+.cite {
+  margin-top: 2%;
+  clear: both;
+  font-size: 2.8vw;
+}
+
+.name {
+  font-size: 1.5vw;
+  margin-top: 10px;
+}
+
+.wholeRevContainer {
+  display: block;
+  position: absolute;
+  width: 56%;
+  padding-left: 5%;
+  padding-right: 2%;
+  top: 50%;
+  margin-top: -12%;
+}
+
+.starRev i {
+  font-size: 5vw;
+}
+
+.starRev {
+  text-align: center;
+  margin-left: -20%;
+}
+
+@media only screen and (max-width: 800px) {
+
+  #reviewSection {
+    min-height: 450px;
+    min-width: 350px;
+  }
+  .posterImage {
+    filter: saturate(30%) contrast(85%) brightness(50%);
+    max-height: 75%;
+    max-width: 100%;
+    margin-left: -8%
+  }
+
+  #face {
+    width: 100%;
+    text-align: center;
+  }
+
+  .wholeRevContainer {
+    width: 90%;
+    padding-right: 5%;
+    text-align: center;
+    vertical-align: text-bottom;
+    top: 100%;
+    margin-top: -250px;
+  }
+
+  .cite {
+    margin-right: 0%;
+    font-size: 29px;
+  }
+
+  .name {
+    font-size: 15px;
+    margin-top: 10px;
+  }
+
+  .starRev i {
+    font-size: 50px;
+  }
+  .starRev {
+    margin-left: 0;
+  }
+
+  @media only screen and (max-width: 500px) {
+    .cite {
+      font-size: 25px;
+    }
+    .name {
+      font-size: 12px;
+    }
+  }
+}
+
+#test {
+  height: 100vh;
+  background-color: red;
+}
