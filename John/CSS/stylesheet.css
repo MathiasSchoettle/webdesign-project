@@ -1,0 +1,15 @@
+@font-face {
+  font-family: revue;
+  src: url('../Ressources/Fonts/revue/revue.otf');
+}
+
+@font-face {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.john {
+	font-family: revue;
+  height: 600px;
+  text-align: center;
+  font-size: 22px;
+}
