@@ -10,6 +10,7 @@
 :root {
   --bg-color: #141414;
   --text-color: #ededed;
+  --drop-shadow: rgba(0,0,0, 0.3);
 }
 
 body {
@@ -39,7 +40,7 @@ html {
 .navbar {
   height: 110px;
   background-color: var(--bg-color);
-  box-shadow: 0px 7px 20px 5px rgba(0,0,0,0.5);
+  box-shadow: 0px 7px 30px 5px var(--drop-shadow);
 }
 
 .navbar a {
@@ -290,7 +291,7 @@ html {
   line-height: 400px;
   color: #bdbdbd;
   transition: 0.2s;
-  filter: drop-shadow(0 0 10px var(--bg-color));
+  filter: drop-shadow(0 0 10px var(--drop-shadow));
   cursor: pointer;
 }
 
@@ -330,7 +331,7 @@ html {
   transform: translateY(-50%);
   font-size: 100px;
   z-index: 4;
-  color: #bdbdbd;
+  color: #ededed;
   transition: 0.3s;
   cursor: pointer;
   -webkit-user-select: none;
@@ -340,7 +341,6 @@ html {
 
 #gallery i:hover {
   font-size: 110px;
-  color: var(--text-color);
 }
 
 #gallery #icon-left {
@@ -374,7 +374,7 @@ html {
   left: -66%;
   width: 60%;
   transform: translateX(-50%);
-  filter: drop-shadow(0 5px 10px black) saturate(30%) brightness(30%);
+  filter: drop-shadow(0 5px 10px var(--drop-shadow)) saturate(30%) brightness(30%);
   opacity: 0;
 }
 
@@ -382,28 +382,28 @@ html {
   left: -17%;
   width: 60%;
   transform: translateX(-50%);
-  filter: drop-shadow(0 5px 10px black) saturate(30%) brightness(70%);
+  filter: drop-shadow(0 5px 10px var(--drop-shadow)) saturate(30%) brightness(70%);
 }
 
 .gallery-container-middle {
   left: 50%;
   width: 70%;
   transform: translateX(-50%);
-  filter: drop-shadow(0 5px 10px black);
+  filter: drop-shadow(0 5px 10px var(--drop-shadow));
 }
 
 .gallery-container-right {
   left: 117%;
   width: 60%;
   transform: translateX(-50%);
-  filter: drop-shadow(0 5px 10px black) saturate(30%) brightness(70%);
+  filter: drop-shadow(0 5px 10px var(--drop-shadow)) saturate(30%) brightness(70%);
 }
 
 .gallery-container-outer-right {
   left: 166%;
   width: 60%;
   transform: translateX(-50%);
-  filter: drop-shadow(0 5px 10px black) saturate(30%) brightness(30%);
+  filter: drop-shadow(0 5px 10px var(--drop-shadow)) saturate(30%) brightness(30%);
   opacity: 0;
 }
 
@@ -511,16 +511,17 @@ html {
 
 #footer-nav {
   height: 40px;
-  text-align: center;
   line-height: 40px;
+  position: relative;
 }
 
-#footer-nav a {
-  padding: 0 5px;
-  font-size: 14px;
-  font-weight: bold;
-  text-decoration: none;
-  color: var(--text-color);
+#footer-nav i {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 40px;
+  cursor: pointer;
 }
 
 #footer-copyright {
@@ -592,7 +593,6 @@ html {
 
   #gallery i:hover {
     font-size: 55px;
-    color: var(--text-color);
   }
 
   #gallery #icon-left {

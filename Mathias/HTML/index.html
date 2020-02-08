@@ -6,16 +6,15 @@
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://d1azc1qln24ryf.cloudfront.net/114779/Socicon/style-cf.css?u8vidh">
-  <link rel="stylesheet" type="text/css" href="../../Maja/CSS/stylesheet.css">
-  <link rel="stylesheet" type="text/css" href="../CSS/stylesheet.css">
-  <link rel='shortcut icon' type='image/x-icon' href='../Ressources/Images/favicon.ico' />
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 
-  <script defer type="text/javascript" src="../../Maja/JS/script.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../Maja/CSS/stylesheet.css">
+  <link rel="stylesheet" type="text/css" href="../CSS/stylesheet.css">
+
+  <link rel='shortcut icon' type='image/png' href='../Ressources/Images/favicon.png' />
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-  <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
 </head>
 
 <body>
@@ -25,7 +24,7 @@
         <a href="#" onclick="scrollToElement(document.getElementById('gallery'));event.preventDefault();">GALLERY</a>
       </div>
       <div class="header-link">
-        <a href="#" onclick="scrollToElement(document.getElementById('pyra'));event.preventDefault();">PYRA</a>
+        <a href="#" onclick="scrollToElement(document.getElementById('screening'));event.preventDefault();">SCREENING</a>
       </div>
       <div class="header-logo">
         <a href="#">THE ROOM</a>
@@ -34,7 +33,7 @@
         <a href="#" onclick="scrollToElement(document.getElementById('trailer-container'));event.preventDefault();">TRAILER</a>
       </div>
       <div class="header-link">
-        <a href="#" onclick="scrollToElement(document.getElementById('john'));event.preventDefault();">JOHN</a>
+        <a href="#" onclick="scrollToElement(document.getElementById('info'));event.preventDefault();">INFO</a>
       </div>
 
       <button id="menubtn" onclick="openOrCloseMenu()" type="button" name="menubutton" class="header-menu-button"><i id="menubtnico" class="material-icons">menu</i></button>
@@ -45,25 +44,22 @@
         <a href="#" onclick="scrollToElement(document.getElementById('gallery'));openOrCloseMenu();event.preventDefault();">GALLERY</a>
       </div>
       <div class="header-menu-link">
-        <a href="#" onclick="scrollToElement(document.getElementById('pyra'));openOrCloseMenu();event.preventDefault();">PYRA</a>
+        <a href="#" onclick="scrollToElement(document.getElementById('screening'));openOrCloseMenu();event.preventDefault();">SCREENING</a>
       </div>
       <div class="header-menu-link">
         <a href="#" onclick="scrollToElement(document.getElementById('trailer-container'));openOrCloseMenu();event.preventDefault();">TRAILER</a>
       </div>
       <div class="header-menu-link">
-        <a href="#" onclick="scrollToElement(document.getElementById('john'));openOrCloseMenu();event.preventDefault();">JOHN</a>
+        <a href="#" onclick="scrollToElement(document.getElementById('info'));openOrCloseMenu();event.preventDefault();">INFO</a>
       </div>
     </nav>
   </header>
 
   <div class="top-filler"></div> <!-- fills space the header occupies when at top -->
 
-  <!-- review section and one page movie poster-->
-  <section id="reviewSection">
+  <div id="reviewSection">
     <div class="wholeRevContainer">
-      <!-- star reviews -->
       <div class="starRev"></div>
-      <!-- review text -->
       <div class="review">
         <p class="cite"></p>
         <p class="name"></p>
@@ -71,10 +67,9 @@
     </div>
 
     <div id=face>
-      <!-- poster image -->
       <img src="../../Maja/Ressources/Images/the_room_poster.png" alt="" class="posterImage">
     </div>
-  </section>
+  </div>
 
   <div id="user-review-container">
     <div id="review-stars">
@@ -98,7 +93,7 @@
       </div>
     </div>
 
-    <form id="review-form" action="" method="post" autocomplete="off">
+    <form id="review-form" action="#" method="post" autocomplete="off">
       <textarea id="review-text" name="review-text" cols="30" rows="3" maxlength="75" placeholder="WRITE YOUR REVIEW"></textarea><br>
       <input id="review-name" type="text" name="name" value="" size="25" maxlength="23" placeholder="YOUR NAME"><br>
       <button onclick="submitForm()" type="button" name="button">SUBMIT</button>
@@ -119,22 +114,25 @@
     <span id="scrollRight" onclick="galleryScroll(true, this.id)"><i id="icon-right" class="material-icons">keyboard_arrow_right</i></span>
   </div>
 
-  <div class="filler" id="pyra">CONTENT - PYRA</div>
+  <div class="filler" id="screening">CONTENT - SCREENINGS</div>
 
-  <div id="trailer-overlay">
-    <div id="color-overlay"></div>
-    <span id="trailer-overlay-close" onclick="closeTrailerPlayer()"><i class="material-icons">close</i></span>
-    <video id="trailer-video" src="../Ressources/Videos/trailer.mp4" controls muted />
-  </div>
-  <div id="trailer-container">
-    <span onclick="openTrailerPlayer()"><i class="material-icons">play_circle_filled</i></span>
-    <div id="overlay"></div>
-    <video autoplay muted loop>
-      <source src="../Ressources/Videos/trailerBAW.mp4" type="video/mp4">
-    </video>
+  <div id="trailer">
+    <div id="trailer-overlay">
+      <div id="color-overlay"></div>
+      <span id="trailer-overlay-close" onclick="closeTrailerPlayer()"><i class="material-icons">close</i></span>
+      <video id="trailer-video" src="../Ressources/Videos/trailer.mp4" controls muted></video>
+    </div>
+    <div id="trailer-container">
+      <span onclick="openTrailerPlayer()"><i class="material-icons">play_circle_filled</i></span>
+      <div id="overlay"></div>
+      <video autoplay muted loop>
+        <source src="../Ressources/Videos/trailerBAW.mp4" type="video/mp4">
+      </video>
+    </div>
   </div>
 
-  <div class="filler" id="john">CONTENT - JOHN</div>
+
+  <div class="filler" id="info">CONTENT - INFO</div>
 
   <footer class="footer">
     <nav class="footer-social-media">
@@ -146,10 +144,7 @@
 
     <div class="footer-other">
       <nav id="footer-nav">
-        <a href="https://www.tommywiseau.com/">About</a>
-        <a href="">Imprint</a>
-        <a href="">Privacy</a>
-        <a href="mailto:theroom@theroommovie.com">Contact</a>
+        <span onclick="window.scrollTo(0,0);"><i class="material-icons">keyboard_arrow_up</i></span>
       </nav>
 
       <p id="footer-copyright">Copyright &#169; The Room <script>
@@ -158,24 +153,25 @@
       </p>
     </div>
   </footer>
+
+  <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-firestore.js"></script>
+  <script src="../JS/scripts.js"></script>
+  <script defer src="../../Maja/JS/script.js"></script>
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyCxUbvpJ1TV9Yl7C-hpViuKLtbUkBeRWYc",
+      authDomain: "the-room-redesign.firebaseapp.com",
+      databaseURL: "https://the-room-redesign.firebaseio.com",
+      projectId: "the-room-redesign",
+      storageBucket: "the-room-redesign.appspot.com",
+      messagingSenderId: "664441227198",
+      appId: "1:664441227198:web:14a29dd1ba829c2f1e9bef"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+  </script>
 </body>
-<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-analytics.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-firestore.js"></script>
-<script type="text/javascript" src="../JS/scripts.js"></script>
-<script type="text/javascript">
-  var firebaseConfig = {
-    apiKey: "AIzaSyCxUbvpJ1TV9Yl7C-hpViuKLtbUkBeRWYc",
-    authDomain: "the-room-redesign.firebaseapp.com",
-    databaseURL: "https://the-room-redesign.firebaseio.com",
-    projectId: "the-room-redesign",
-    storageBucket: "the-room-redesign.appspot.com",
-    messagingSenderId: "664441227198",
-    appId: "1:664441227198:web:14a29dd1ba829c2f1e9bef"
-  };
-
-  firebase.initializeApp(firebaseConfig);
-</script>
-
 </html>
