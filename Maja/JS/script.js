@@ -202,13 +202,23 @@ function showWindowSize() {
   let vh = window.innerHeight * 0.01;
   let vw = window.innerWidth * 0.01;
 
-  header_height = 60;
+  document.documentElement.style.setProperty('--vw', `${vw}px`);
 
   // adapt font size
   if (window.innerWidth > 800) {
     document.getElementsByClassName('cite')[0].style.fontSize = (2.8 * vw) + 'px';
     document.getElementsByClassName('name')[0].style.fontSize = (1.5 * vw) + 'px';
     header_height = 110;
+
+  } else {
+    if(window.innerWidth > 500){
+      document.getElementsByClassName('cite')[0].style.fontSize = '29px';
+      document.getElementsByClassName('name')[0].style.fontSize = '15px';
+    } else {
+      document.getElementsByClassName('cite')[0].style.fontSize = '25px';
+      document.getElementsByClassName('name')[0].style.fontSize = '12px';
+    }
+    header_height=60;
   }
 
   // adapt front page height

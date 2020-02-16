@@ -59,7 +59,7 @@ body {
 }
 
 .starRev i {
-  font-size: 5vw;
+  font-size: calc(5*var(--vw));
 }
 
 .starRev {
@@ -93,28 +93,11 @@ body {
     margin-top: -250px;
   }
 
-  .cite {
-    font-size: 29px;
-  }
-
-  .name {
-    font-size: 15px;
-  }
-
   .starRev i {
     font-size: 50px;
   }
 
   .starRev {
     margin-left: 0;
-  }
-
-  @media only screen and (max-width: 500px) {
-    .cite {
-      font-size: 25px;
-    }
-    .name {
-      font-size: 12px;
-    }
   }
 }
