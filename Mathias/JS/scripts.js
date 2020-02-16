@@ -59,8 +59,7 @@ function submitForm() {
 }
 
 function scrollToElement(element) {
-  var thanks = document.getElementById('user-review-success');
-  window.scrollTo(0, element.offsetTop - 150);
+  window.scrollTo(0, element.offsetTop - 140);
 }
 
 function checkReviewScore(){
@@ -105,16 +104,22 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   var score = 0;
 
-  var stars = document.getElementById('border-stars');
-  stars.onmousemove = function(e) {
-      var rect = document.getElementById('border-stars').getBoundingClientRect();
-      var x = e.pageX - parseInt(rect.left);
-      document.getElementById('full-stars').style.width = x + 'px';
+  function setStarsWidth() {
+    stars.onmousemove = function(e) {
+        var rect = document.getElementById('border-stars').getBoundingClientRect();
+        var x = e.pageX - parseInt(rect.left);
+        document.getElementById('full-stars').style.width = x + 'px';
+    }
   }
+
+  var stars = document.getElementById('border-stars');
+
+  setStarsWidth();
 
   stars.addEventListener('mouseleave', function() {
     document.getElementById('full-stars').style.transition = '0.6s';
     document.getElementById('full-stars').style.width = score + 'px';
+    setStarsWidth();
   });
 
   stars.addEventListener('mouseenter', function() {
@@ -122,14 +127,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
   });
 
   stars.addEventListener('click', function() {
-    score = document.getElementById('full-stars').offsetWidth;
+    stars.onmousemove = null;
+    setTimeout(() => {score = document.getElementById('full-stars').offsetWidth;}, 100);
+  })
+
+  stars.addEventListener('touchstart', function() {
+    setTimeout(() => {score = document.getElementById('full-stars').offsetWidth;}, 100);
+    setStarsWidth();
   })
 
   if(localStorage.getItem('hasWrittenReview') == 'true'){
     var cont = document.getElementById('user-review-container').remove();
-    var thanks = document.getElementById('user-review-success');
-    thanks.style.maxHeight = '1000px';
-    thanks.style.paddingTop = '100px';
+    var thanks = document.getElementById('user-review-success').remove();
   }
 });
 
