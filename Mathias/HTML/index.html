@@ -4,18 +4,16 @@
 <head>
   <title>The Room | Official Website</title>
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://d1azc1qln24ryf.cloudfront.net/114779/Socicon/style-cf.css?u8vidh">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> <!-- google material icosn -->
+  <link rel="stylesheet" href="https://d1azc1qln24ryf.cloudfront.net/114779/Socicon/style-cf.css?u8vidh"> <!-- icon font used in footer -->
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" type="text/css" href="../../Maja/CSS/stylesheet.css">
-  <link rel="stylesheet" type="text/css" href="../CSS/stylesheet.css">
+  <link rel="stylesheet" type="text/css" href="../../Maja/CSS/mainStylesheet.css">
+  <link rel="stylesheet" type="text/css" href="../CSS/stylesheet.css"> <!-- add stylsheets from other directories -->
 
-  <link rel='shortcut icon' type='image/png' href='../Ressources/Images/favicon.png' />
-
+  <link rel='shortcut icon' type='image/png' href='../Ressources/Images/favicon.png' /> <!-- set favicon -->
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 </head>
 
 <body>
@@ -37,6 +35,7 @@
         <a href="#" onclick="scrollToElement(document.getElementById('gallery'));event.preventDefault();">GALLERY</a>
       </div>
 
+      <!-- menu button which is shown when in mobile view -->
       <button id="menubtn" onclick="openOrCloseMenu()" type="button" name="menubutton" class="header-menu-button"><i id="menubtnico" class="material-icons">menu</i></button>
     </nav>
 
@@ -59,6 +58,7 @@
   <div id="top-filler"></div> <!-- fills space the header occupies when at top -->
 
   <div id="reviewSection">
+    <!-- review section, gets filled with javascript -->
     <div class="wholeRevContainer">
       <div class="starRev"></div>
       <div class="review">
@@ -73,6 +73,7 @@
   </div>
 
   <div id="user-review-container">
+    <!-- these divs are used in the star selection calculation -->
     <div id="review-stars">
       <div id="review-hover-container">
         <div id="full-stars">
@@ -95,6 +96,7 @@
     </div>
 
     <form id="review-form" action="#" method="post" autocomplete="off">
+      <!-- form containing the user rewview -->
       <textarea id="review-text" name="review-text" cols="30" rows="3" maxlength="75" placeholder="WRITE YOUR REVIEW"></textarea><br>
       <input id="review-name" type="text" name="name" value="" size="25" maxlength="23" placeholder="YOUR NAME"><br>
       <button onclick="submitForm()" type="button" name="submitReviewForm">SUBMIT</button>
@@ -102,17 +104,20 @@
   </div>
 
   <div id="user-review-success">
+    <!-- This div replaces the user review section when sent and is hidden by default, if a user has already given a review and reloads the site this will not be shown again -->
     <p><strong>THANK YOU<br>❤️<br>FOR YOUR REVIEW</strong></p>
   </div>
 
   <section id="trailer">
     <h1>WATCH THE TRAILER</h1>
     <div id="trailer-overlay">
+      <!-- This div is hidden by default and opens the trailer player, it is full html css and javascript and no libraries where used -->
       <div id="color-overlay"></div>
       <span id="trailer-overlay-close" onclick="closeTrailerPlayer()"><i class="material-icons">close</i></span>
       <video id="trailer-video" src="../Ressources/Videos/trailer.mp4" controls muted></video>
     </div>
     <div id="trailer-container">
+      <!--this div contains the play button and a B&W version of the trailer running in the background -->
       <span onclick="openTrailerPlayer()"><i class="material-icons">play_circle_filled</i></span>
       <div id="overlay"></div>
       <video autoplay muted loop>
@@ -179,11 +184,13 @@
         Meet up with other fans who are just as obsessed with The Room as you are. Watch the movie together so you can laugh at your favourite scenes with each other.
       </p>
       <p>But thats not all. After the screening Tommy Wiseau will come on stage and do a live Q&A answering all your questions and signing autographs.</p>
-      <a href="">GET YOUR TICKETS NOW</a> <p>Seats are limited, tickets are not refundable</p>
+      <a href="">GET YOUR TICKETS NOW</a>
+      <p>Seats are limited, tickets are not refundable</p>
     </div>
   </section>
 
   <section id="gallery">
+    <!-- this section contains the gallery, images can be viewed by clicking on the left and right buttons -->
     <h1>GALLERY</h1>
     <div id="images-container">
       <div style="background-image: url('../Ressources/Images/test4.jpg');" class="gallery-container gallery-container-outer-left"></div>
@@ -197,6 +204,7 @@
   </section>
 
   <footer class="footer">
+    <!-- contains social media links -->
     <nav class="footer-social-media">
       <a href="https://www.youtube.com/TommyWiseau" target="_blank" class="socicon-youtube footer-icon"></a>
       <a href="https://www.facebook.com/theroommovie/" target="_blank" class="socicon-facebook footer-icon"></a>
@@ -206,23 +214,23 @@
     </nav>
 
     <div class="footer-other">
+      <!-- a button to scoll back to top -->
       <nav id="footer-nav">
         <span onclick="window.scrollTo(0,0);"><i class="material-icons">keyboard_arrow_up</i></span>
       </nav>
 
       <p id="footer-copyright">Copyright &#169; The Room <script>
-          document.write(new Date().getFullYear())
+          document.write(new Date().getFullYear()) // this script just fills in the current year
         </script><br>All Images and Videos are Property of Wieseau Films
       </p>
     </div>
   </footer>
 
+  <!-- these scipts are only used to load the data from the database for viewing in the review section and for uploading the user review -->
   <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-analytics.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-firestore.js"></script>
-  <script src="../JS/scripts.js"></script>
-  <script defer src="../../Maja/JS/script.js"></script>
   <script>
     var firebaseConfig = {
       apiKey: "AIzaSyCxUbvpJ1TV9Yl7C-hpViuKLtbUkBeRWYc",
@@ -236,6 +244,10 @@
 
     firebase.initializeApp(firebaseConfig);
   </script>
+
+  <!-- these are our own written scripts -->
+  <script src="../JS/scripts.js"></script>
+  <script defer src="../../Maja/JS/reviewUtils.js"></script>
 </body>
 
 </html>

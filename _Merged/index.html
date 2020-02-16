@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <title>The Room | Official Website</title>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> <!-- google material icosn -->
+  <link rel="stylesheet" href="https://d1azc1qln24ryf.cloudfront.net/114779/Socicon/style-cf.css?u8vidh"> <!-- icon font used in footer -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="CSS/mainStylesheet.css">
+  <link rel="stylesheet" type="text/css" href="CSS/mediaScreenStylesheet.css"> <!-- add stylsheets from other directories -->
+
+  <link rel='shortcut icon' type='image/png' href='Ressources/Images/favicon.png' /> <!-- set favicon -->
+  <meta charset="utf-8" />
+</head>
+
+<body>
+  <header class="header">
+    <nav id="navbar">
+      <div class="header-link">
+        <a href="#" onclick="scrollToElement(document.getElementById('trailer'));event.preventDefault();">TRAILER</a>
+      </div>
+      <div class="header-link">
+        <a href="#" onclick="scrollToElement(document.getElementById('screening'));event.preventDefault();">SCREENING</a>
+      </div>
+      <div class="header-logo">
+        <a href="#">THE ROOM</a>
+      </div>
+      <div class="header-link">
+        <a href="#" onclick="scrollToElement(document.getElementById('info'));event.preventDefault();">INFO</a>
+      </div>
+      <div class="header-link">
+        <a href="#" onclick="scrollToElement(document.getElementById('gallery'));event.preventDefault();">GALLERY</a>
+      </div>
+
+      <!-- menu button which is shown when in mobile view -->
+      <button id="menubtn" onclick="openOrCloseMenu()" type="button" name="menubutton" class="header-menu-button"><i id="menubtnico" class="material-icons">menu</i></button>
+    </nav>
+
+    <nav class="header-dropdown-menu" id="mainMenuDropDownItems">
+      <div class="header-menu-link">
+        <a href="#" onclick="scrollToElement(document.getElementById('trailer '));openOrCloseMenu();event.preventDefault();">TRAILER</a>
+      </div>
+      <div class="header-menu-link">
+        <a href="#" onclick="scrollToElement(document.getElementById('screening'));openOrCloseMenu();event.preventDefault();">SCREENING</a>
+      </div>
+      <div class="header-menu-link">
+        <a href="#" onclick="scrollToElement(document.getElementById('info'));openOrCloseMenu();event.preventDefault();">INFO</a>
+      </div>
+      <div class="header-menu-link">
+        <a href="#" onclick="scrollToElement(document.getElementById('gallery'));openOrCloseMenu();event.preventDefault();">GALLERY</a>
+      </div>
+    </nav>
+  </header>
+
+  <div id="top-filler"></div> <!-- fills space the header occupies when at top -->
+
+  <div id="reviewSection">
+    <!-- review section, gets filled with javascript -->
+    <div class="wholeRevContainer">
+      <div class="starRev"></div>
+      <div class="review">
+        <p class="cite"></p>
+        <p class="name"></p>
+      </div>
+    </div>
+
+    <div id=face>
+      <img src="Ressources/Images/the_room_poster.png" alt="" class="posterImage">
+    </div>
+  </div>
+
+  <div id="user-review-container">
+    <!-- these divs are used in the star selection calculation -->
+    <div id="review-stars">
+      <div id="review-hover-container">
+        <div id="full-stars">
+          <div>
+            <i class="material-icons">star</i>
+            <i class="material-icons">star</i>
+            <i class="material-icons">star</i>
+            <i class="material-icons">star</i>
+            <i class="material-icons">star</i>
+          </div>
+        </div>
+        <div id="border-stars">
+          <i class="material-icons">star_border</i>
+          <i class="material-icons">star_border</i>
+          <i class="material-icons">star_border</i>
+          <i class="material-icons">star_border</i>
+          <i class="material-icons">star_border</i>
+        </div>
+      </div>
+    </div>
+
+    <form id="review-form" action="#" method="post" autocomplete="off">
+      <!-- form containing the user rewview -->
+      <textarea id="review-text" name="review-text" cols="30" rows="3" maxlength="75" placeholder="WRITE YOUR REVIEW"></textarea><br>
+      <input id="review-name" type="text" name="name" value="" size="25" maxlength="23" placeholder="YOUR NAME"><br>
+      <button onclick="submitForm()" type="button" name="submitReviewForm">SUBMIT</button>
+    </form>
+  </div>
+
+  <div id="user-review-success">
+    <!-- This div replaces the user review section when sent and is hidden by default, if a user has already given a review and reloads the site this will not be shown again -->
+    <p><strong>THANK YOU<br>❤️<br>FOR YOUR REVIEW</strong></p>
+  </div>
+
+  <section id="trailer">
+    <h1>WATCH THE TRAILER</h1>
+    <div id="trailer-overlay">
+      <!-- This div is hidden by default and opens the trailer player, it is full html css and javascript and no libraries where used -->
+      <div id="color-overlay"></div>
+      <span id="trailer-overlay-close" onclick="closeTrailerPlayer()"><i class="material-icons">close</i></span>
+      <video id="trailer-video" src="Ressources/Videos/trailer.mp4" controls muted></video>
+    </div>
+    <div id="trailer-container">
+      <!--this div contains the play button and a B&W version of the trailer running in the background -->
+      <span onclick="openTrailerPlayer()"><i class="material-icons">play_circle_filled</i></span>
+      <div id="overlay"></div>
+      <video autoplay muted loop>
+        <source src="Ressources/Videos/trailerBAW.mp4" type="video/mp4">
+      </video>
+    </div>
+  </section>
+
+  <section id="screening">
+    <h1>GET YOUR VENUE TICKETS HERE</h1>
+    <div id="cinema-list">
+      <table>
+        <tr>
+          <th>09/02/2020</th>
+          <th>LONDON</th>
+          <th><a href="https://princecharlescinema.com/PrinceCharlesCinema.dll/WhatsOn?f=11449221" target="_blank">VIEW</a></th>
+        </tr>
+        <tr>
+          <th>21/02/2020</th>
+          <th>BROOKLINE - MA</th>
+          <th><a href="https://coolidge.org/films/room-0" target="_blank">VIEW</a></th>
+        </tr>
+        <tr>
+          <th>21/02/2020</th>
+          <th>CHICAGO</th>
+          <th><a href="https://musicboxtheatre.com/films/the-room" target="_blank">VIEW</a></th>
+        </tr>
+        <tr>
+          <th>28/02/2020</th>
+          <th>PORTLAND - OR</th>
+          <th><a href="https://www.cinema21.com/movie/the-room" target="_blank">VIEW</a></th>
+        </tr>
+        <tr>
+          <th>29/02/2020</th>
+          <th>LOS ANGELES</th>
+          <th><a href="https://www.landmarktheatres.com/los-angeles/the-landmark-westwood/film-info/the-room" target="_blank">VIEW</a> </th>
+        </tr>
+        <tr>
+          <th>20/03/2020</th>
+          <th>BROOKLINE - MA 5</th>
+          <th><a href="https://coolidge.org/films/room-0" target="_blank">VIEW</a> </th>
+        </tr>
+        <tr>
+          <th>20/03/2020</th>
+          <th>CHICAGO</th>
+          <th><a href="https://musicboxtheatre.com/films/the-room" target="_blank">VIEW</a> </th>
+        </tr>
+      </table>
+    </div>
+    <div id="email-contact">
+      If you would like to screen "The Room" at your own venue please <a href="mailto:theroom@theroommovie.com">send us an Email</a>
+    </div>
+
+    <div id="buy-movie">
+      <a target="_blank" href="https://www.amazon.co.uk/The-Room/dp/B000CFYAMC/ref=sr_1_2?keywords=the+room&qid=1581768764&sr=8-2">BUY THE MOVIE ON AMAZON</a>
+    </div>
+  </section>
+
+  <section id="info">
+    <h1>MORE INFORMATION</h1>
+    <div class="info-content">
+      <h2>LOVE IS BLIND TOUR 2020</h2>
+      <p>The long awaited return of the <i><strong>"Love is Blind Tour"</strong></i> feat. Tommy Wiseau goes into the next round.
+        Meet up with other fans who are just as obsessed with The Room as you are. Watch the movie together so you can laugh at your favourite scenes with each other.
+      </p>
+      <p>But thats not all. After the screening Tommy Wiseau will come on stage and do a live Q&A answering all your questions and signing autographs.</p>
+      <a href="">GET YOUR TICKETS NOW</a>
+      <p>Seats are limited, tickets are not refundable</p>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <!-- this section contains the gallery, images can be viewed by clicking on the left and right buttons -->
+    <h1>GALLERY</h1>
+    <div id="images-container">
+      <div style="background-image: url('Ressources/Images/gal1.jpg');" class="gallery-container gallery-container-outer-left"></div>
+      <div style="background-image: url('Ressources/Images/gal2.jpg');" class="gallery-container gallery-container-left"></div>
+      <div style="background-image: url('Ressources/Images/gal3.jpg');" class="gallery-container gallery-container-middle"></div>
+      <div style="background-image: url('Ressources/Images/gal4.jpg');" class="gallery-container gallery-container-right"></div>
+      <div style="background-image: url('Ressources/Images/gal5.jpg');" class="gallery-container gallery-container-outer-right"></div>
+      <span id="scrollLeft" onclick="galleryScroll(false, this.id)"><i id="icon-left" class="material-icons">keyboard_arrow_left</i></span>
+      <span id="scrollRight" onclick="galleryScroll(true, this.id)"><i id="icon-right" class="material-icons">keyboard_arrow_right</i></span>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <!-- contains social media links -->
+    <nav class="footer-social-media">
+      <a href="https://www.youtube.com/TommyWiseau" target="_blank" class="socicon-youtube footer-icon"></a>
+      <a href="https://www.facebook.com/theroommovie/" target="_blank" class="socicon-facebook footer-icon"></a>
+      <a href="mailto:theroom@theroommovie.com" target="_blank" class="socicon-mail footer-icon"></a>
+      <a href="https://twitter.com/TheRoomMovie" target="_blank" class="socicon-twitter footer-icon"></a>
+      <a href="https://www.instagram.com/theroom.movie/" target="_blank" class="socicon-instagram footer-icon"></a>
+    </nav>
+
+    <div class="footer-other">
+      <!-- a button to scoll back to top -->
+      <nav id="footer-nav">
+        <span onclick="window.scrollTo(0,0);"><i class="material-icons">keyboard_arrow_up</i></span>
+      </nav>
+
+      <p id="footer-copyright">Copyright &#169; The Room <script>
+          document.write(new Date().getFullYear()) // this script just fills in the current year
+        </script><br>All Images and Videos are Property of Wieseau Films
+      </p>
+    </div>
+  </footer>
+
+  <!-- these scipts are only used to load the data from the database for viewing in the review section and for uploading the user review -->
+  <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-firestore.js"></script>
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyCxUbvpJ1TV9Yl7C-hpViuKLtbUkBeRWYc",
+      authDomain: "the-room-redesign.firebaseapp.com",
+      databaseURL: "https://the-room-redesign.firebaseio.com",
+      projectId: "the-room-redesign",
+      storageBucket: "the-room-redesign.appspot.com",
+      messagingSenderId: "664441227198",
+      appId: "1:664441227198:web:14a29dd1ba829c2f1e9bef"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
+  <!-- these are our own written scripts -->
+  <script src="JS/mainScript.js"></script>
+  <script defer src="JS/reviewUtils.js"></script>
+</body>
+
+</html>
